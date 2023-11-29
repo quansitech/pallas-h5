@@ -2,7 +2,8 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   outputPath: 'docs-dist',
-  publicPath: '',
+  publicPath: '/pallas-h5/',
+  base: '/pallas-h5/',
   themeConfig: {
     name: 'pallas-h5',
   },
