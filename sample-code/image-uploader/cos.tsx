@@ -1,9 +1,11 @@
-import { ImageUploader } from "@quansitech/pallas-h5";
-import React from "react";
+import { ImageUploader } from '@quansitech/pallas-h5';
+import React from 'react';
 
 export default () => {
-
-    return (
-        <ImageUploader action="http://qscmf.tunnel.t4tstudio.com/extends/objectStorage/policyGet?type=image" uploadTo="cos" />
-    )
-}
+  return (
+    <ImageUploader
+      action="https://raw.githubusercontent.com/quansitech/pallas-h5/master/mock/upload.json?cate=image"
+      uploadTo="cos"
+    />
+  );
+};

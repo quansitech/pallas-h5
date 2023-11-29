@@ -9,14 +9,20 @@ order: 1
 
 <code src="../../sample-code/image-uploader/index.tsx"></code>
 
-#### oss上传
+#### oss 上传
 
 <code src="../../sample-code/image-uploader/oss.tsx"></code>
 
-#### cos上传
+#### cos 上传
 
 <code src="../../sample-code/image-uploader/cos.tsx"></code>
 
-#### tos上传
+#### tos 上传
 
 <code src="../../sample-code/image-uploader/tos.tsx"></code>
+
+#### 关闭查重
+
+hashCheck 默认是 true，如果不需要查重，可以设置为 false
+
+<code src="../../sample-code/image-uploader/disable-hash.tsx"></code>
