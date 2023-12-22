@@ -1,0 +1,201 @@
+@themeColor: #70b64d;
+
+.tag-select-component {
+  position: relative;
+  margin-top: 0.3rem;
+
+  .text-cut {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 0.8rem;
+    position: relative;
+    z-index: 803;
+    display: flex;
+    overflow-x: auto;
+
+    .swiper-slide {
+      width: auto !important;
+
+      &.show-mask {
+        .tag-select {
+          .tag-select-choose {
+            &::after {
+              content: '';
+              display: block;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              border-radius: 0.3rem;
+              background: rgba(0, 0, 0, 30%);
+            }
+          }
+        }
+      }
+
+      .tag-select {
+        display: flex;
+        padding-bottom: 0.2rem;
+        margin-right: 0.2rem;
+
+        .tag-select-choose {
+          position: relative;
+          min-width: 2.1rem;
+          height: 0.6rem;
+          padding: 0 0.3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #ededed;
+          border-radius: 0.3rem;
+
+          &.text-blue {
+            color: @themeColor;
+            width: 2.1rem;
+
+            .tag-select-choose-name {
+              width: calc(100%);
+              text-align: center;
+            }
+          }
+
+          &.active {
+            background-color: #fff;
+            border-radius: 0.3rem 0.3rem 0 0;
+            z-index: 802;
+
+            &::before {
+              border-radius: 0;
+              content: '';
+              display: block;
+              position: absolute;
+              width: 100%;
+              height: 0.2rem;
+              background: rgba(255, 255, 255, 100%);
+              top: 100%;
+              left: 0;
+            }
+
+            &::after {
+              display: none;
+            }
+          }
+
+          .tag-select-choose-name {
+            flex-shrink: 0;
+            font-size: 0.28rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+
+  .custom-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: calc(100vw - 0.6rem);
+    max-width: calc(414px - 0.6rem);
+    z-index: 802;
+    box-sizing: border-box;
+    display: none;
+    transform: translateY(-0.2rem);
+
+    &.active {
+      display: block;
+    }
+
+    .white-bg {
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #fff;
+      border-radius: 0.2rem;
+      padding: 0.38rem 0.2rem;
+
+      .content-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -0.68rem;
+        margin-top: -0.24rem;
+
+        .content-item {
+          padding: 0 4px;
+          font-size: 0.28rem;
+          color: #666;
+          margin-left: 0.68rem;
+          margin-top: 0.24rem;
+
+          &.active {
+            color: @themeColor;
+          }
+        }
+      }
+
+      .btns {
+        margin-top: 0.4rem;
+        padding-top: 0.4rem;
+        border-top: 1px solid #eee;
+        display: flex;
+
+        .btn {
+          border-radius: 0.35rem;
+          height: 0.7rem;
+          line-height: 0.7rem;
+          width: calc((100% - 0.64rem) / 2);
+          border: solid 1px @themeColor;
+          text-align: center;
+          font-size: 0.28rem;
+
+          &:nth-child(2) {
+            margin-left: 0.64rem;
+          }
+
+          &:first-child {
+            color: @themeColor;
+            background-color: #fff;
+          }
+
+          &:last-child {
+            color: #fff;
+            background-color: @themeColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tag-select-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 30%);
+  z-index: 801;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.triangles {
+  width: 0;
+  height: 0;
+  border-top: 0.1rem solid #666;
+  border-bottom: 0.1rem solid transparent;
+  border-left: 0.1rem solid transparent;
+  border-right: 0.1rem solid transparent;
+  margin-top: 0.08rem;
+  margin-left: 0.18rem;
+}
