@@ -8,8 +8,8 @@ order: 1
 ## 参数
 
 classNameStr 额外加在这个组件上面的类名，格式是字符串  
-defaultValue 默认值。
-tagsList 数据
+defaultValue 默认值。  
+tagsList 数据  
 ifMultiple 是否多选，默认为 false，类型是：boolean  
 onChange
 
