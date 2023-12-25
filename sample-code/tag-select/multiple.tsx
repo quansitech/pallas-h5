@@ -32,8 +32,30 @@ export default () => {
               },
             ],
           },
+          {
+            field: 'grace',
+            title: '适读年级',
+            children: [
+              {
+                id: '1',
+                name: '小学',
+              },
+              {
+                id: '2',
+                name: '初中',
+              },
+              {
+                id: '3',
+                name: '高中',
+              },
+              {
+                id: '4',
+                name: '大学',
+              },
+            ],
+          },
         ]}
-        ifMultiple={false}
+        ifMultiple={true}
         defaultValue={value}
         onChange={handleChange}
       />
