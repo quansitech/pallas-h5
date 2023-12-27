@@ -17,7 +17,7 @@ export default () => {
   return (
     <div>
       <TagSelect
-        className="page-tag-select"
+        classNameStr="page-tag-select"
         tagsList={[
           {
             field: 'sort',
