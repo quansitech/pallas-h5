@@ -20,13 +20,13 @@ order: 1
 ### 属性类型
 
 ```
-export type PickerValue = AntdPickerValue;
-export type PickerColumnItem = {
+type PickerValue = AntdPickerValue;
+type PickerColumnItem = {
   label: string;
   value: string;
   key?: string | number;
 };
-export type QsSelectPropsType = {
+type QsSelectPropsType = {
   className?: string;
   isShow: boolean;
   columns: PickerColumnItem[];
