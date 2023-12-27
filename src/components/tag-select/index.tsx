@@ -1,35 +1,9 @@
 import { useEffect, useState } from 'react';
+import { DefaultValueType, TagData, TagSelectProps, ValueType } from './type';
 
 import Tag from './components/tag';
 
 import './index.less';
-
-interface TagData {
-  id: string;
-  name: string;
-}
-
-export interface TagListData {
-  field: string;
-  title: string;
-  children: Array<TagData>;
-}
-
-interface ValueType {
-  [key: string]: Array<string>;
-}
-
-export interface DefaultValueType {
-  [key: string]: string;
-}
-
-interface TagSelectProps {
-  classNameStr?: string;
-  defaultValue: DefaultValueType;
-  tagsList: Array<TagListData>;
-  ifMultiple?: boolean;
-  onChange: (value: DefaultValueType) => void;
-}
 
 const remove = (arr: Array<string>, str: string) => {
   let index = arr.indexOf(str);

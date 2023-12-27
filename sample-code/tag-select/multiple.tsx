@@ -2,7 +2,8 @@
  * defaultShowCode: true
  */
 
-import { DefaultValueType, TagSelect } from '@quansitech/pallas-h5';
+import { TagSelect } from '@quansitech/pallas-h5';
+import { DefaultValueType } from '@quansitech/pallas-h5/tag-select/type';
 import React, { useState } from 'react';
 
 export default () => {

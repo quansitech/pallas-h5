@@ -27,6 +27,10 @@ interface TagListData {
     title: string;
     children: Array<TagData>;
 }
+interface TagData {
+  id: string;
+  name: string;
+}
 ```
 
 <code src="../../sample-code/tag-select/index.tsx" description="ifMultiple 为false">单选</code>
