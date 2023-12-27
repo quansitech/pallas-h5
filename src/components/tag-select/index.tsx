@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
-import { DefaultValueType, TagData, TagSelectProps, ValueType } from './type';
+import type {
+  DefaultValueType,
+  TagData,
+  TagSelectProps,
+  ValueType,
+} from './type';
 
 import Tag from './components/tag';
 

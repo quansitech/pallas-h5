@@ -1,26 +1,26 @@
-export interface TagData {
+export type TagData = {
   id: string;
   name: string;
-}
+};
 
-export interface TagListData {
+export type TagListData = {
   field: string;
   title: string;
   children: Array<TagData>;
-}
+};
 
-export interface ValueType {
+export type ValueType = {
   [key: string]: Array<string>;
-}
+};
 
-export interface DefaultValueType {
+export type DefaultValueType = {
   [key: string]: string;
-}
+};
 
-export interface TagSelectProps {
+export type TagSelectProps = {
   classNameStr?: string;
   defaultValue: DefaultValueType;
   tagsList: Array<TagListData>;
   ifMultiple?: boolean;
   onChange: (value: DefaultValueType) => void;
-}
+};

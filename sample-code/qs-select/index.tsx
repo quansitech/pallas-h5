@@ -3,7 +3,7 @@
  */
 
 import { QsSelect } from '@quansitech/pallas-h5';
-import { PickerValue } from '@quansitech/pallas-h5/qs-select/type';
+import type { PickerValue } from '@quansitech/pallas-h5/qs-select/type';
 import React, { useState } from 'react';
 
 export default () => {

@@ -1,6 +1,6 @@
 import { Input, PickerView, Popup } from 'antd-mobile';
 import React, { useEffect, useState } from 'react';
-import { PickerColumnItem, PickerValue, QsSelectPropsType } from './type';
+import type { PickerColumnItem, PickerValue, QsSelectPropsType } from './type';
 
 import './index.less';
 
