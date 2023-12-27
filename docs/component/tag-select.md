@@ -18,19 +18,33 @@ order: 1
 ### 属性类型
 
 ```
-interface DefaultValueType {
-    [key: string]: string;
-}
-
-interface TagListData {
-    field: string;
-    title: string;
-    children: Array<TagData>;
-}
 interface TagData {
   id: string;
   name: string;
 }
+
+interface TagListData {
+  field: string;
+  title: string;
+  children: Array<TagData>;
+}
+
+interface ValueType {
+  [key: string]: Array<string>;
+}
+
+interface DefaultValueType {
+  [key: string]: string;
+}
+
+interface TagSelectProps {
+  classNameStr?: string;
+  defaultValue: DefaultValueType;
+  tagsList: Array<TagListData>;
+  ifMultiple?: boolean;
+  onChange: (value: DefaultValueType) => void;
+}
+
 ```
 
 <code src="../../sample-code/tag-select/index.tsx" description="ifMultiple 为false">单选</code>

@@ -20,23 +20,21 @@ order: 1
 ### 属性类型
 
 ```
-export namespace QsSelectType {
-    export type PickerValue = AntdPickerValue;
-    export type PickerColumnItem = {
-        label: string;
-        value: string;
-        key?: string | number;
-    };
-    export type QsSelectPropsType = {
-        className?: string;
-        isShow: boolean;
-        columns: PickerColumnItem[];
-        defaultValue: string;
-        showSearch?: boolean;
-        onChange: (value: PickerValue) => void;
-        onClose: () => void;
-    };
-}
+export type PickerValue = AntdPickerValue;
+export type PickerColumnItem = {
+  label: string;
+  value: string;
+  key?: string | number;
+};
+export type QsSelectPropsType = {
+  className?: string;
+  isShow: boolean;
+  columns: PickerColumnItem[];
+  defaultValue: string;
+  showSearch?: boolean;
+  onChange: (value: PickerValue) => void;
+  onClose: () => void;
+};
 ```
 
 <code src="../../sample-code/qs-select/index.tsx" >带有搜索的选择组件</code>
