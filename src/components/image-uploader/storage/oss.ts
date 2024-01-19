@@ -5,20 +5,25 @@ const ossStorage: Storage = {
   upload: async (file: File, action: string, hashId?: string) => {
     const formData = new FormData();
 
-    let preUrl = new URLSearchParams(action);
+    let preUrl = {
+      hashId: '',
+      vendor_type: '',
+      file_type: '',
+      title: '',
+    };
     if (typeof hashId !== 'undefined' && hashId !== '') {
-      preUrl.append('hash_id', hashId);
+      preUrl.hashId = hashId;
     }
 
     let fileType = file.type;
     if (!fileType) {
       fileType = await Utils.getFileType.start(file);
     }
-    preUrl.append('vendor_type', 'aliyun_oss');
-    preUrl.append('file_type', fileType);
-    preUrl.append('title', file.name);
+    preUrl.vendor_type = 'aliyun_oss';
+    preUrl.file_type = fileType;
+    preUrl.title = file.name;
 
-    const res = await fetch(decodeURIComponent(preUrl.toString()));
+    const res = await fetch(Utils.normalizeUrl(action, preUrl));
     const resData = await res.json();
     if (parseInt(resData.status) === 2) {
       return {

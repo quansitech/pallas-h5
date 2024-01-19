@@ -14,6 +14,7 @@ interface ImageUploaderProps {
   hashCheck?: boolean;
   action: string;
   uploadTo?: 'server' | 'oss' | 'cos' | 'tos';
+  maxCount?: number;
   onChange?: ((items: ImageUploadItem[]) => void) | undefined;
 }
 
@@ -43,6 +44,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
   value = [],
   hashCheck = true,
   uploadTo = 'server',
+  maxCount = 0,
   action,
   onChange,
 }) => {
@@ -77,6 +79,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
       onChange={handleChange}
       upload={upload}
       multiple={true}
+      maxCount={maxCount}
     />
   );
 };

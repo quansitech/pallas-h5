@@ -1,3 +1,4 @@
+import Utils from '../utils';
 import type { Storage } from './storage-type';
 
 const serverStorage: Storage = {
@@ -7,11 +8,14 @@ const serverStorage: Storage = {
     const formData = new FormData();
 
     if (typeof hashId !== 'undefined' && hashId !== '') {
-      let preUrl = new URLSearchParams(action);
-      preUrl.append('hash_id', hashId);
-      preUrl.append('title', file.name);
+      let preUrl = {
+        hash_id: '',
+        title: '',
+      };
+      preUrl.hash_id = hashId;
+      preUrl.title = file.name;
 
-      const res = await fetch(decodeURIComponent(preUrl.toString()));
+      const res = await fetch(Utils.normalizeUrl(action, preUrl));
       const resData = await res.json();
       if (resData.status) {
         return resData;
