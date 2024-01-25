@@ -1,7 +1,7 @@
 import init, { calc_file_hash } from '@quansitech/file-md5-wasm';
 import type { ImageUploadItem } from 'antd-mobile';
 import { ImageUploader as AntdImageUploader } from 'antd-mobile';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './index.less';
 import cosStorage from './storage/cos';
 import ossStorage from './storage/oss';
@@ -55,7 +55,6 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
       hashId: '',
     };
     if (hashCheck) {
-      await init();
       params.hashId = await calc_file_hash(file);
     }
 
@@ -71,6 +70,12 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
       onChange(items);
     }
   };
+
+  useEffect(() => {
+    if(hashCheck) {
+      init();
+    }
+  }, []);
 
   return (
     <AntdImageUploader
