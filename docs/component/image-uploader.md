@@ -15,6 +15,8 @@ order: 1
 
 #### cos 上传
 
+并且通过 maxCount 设置最大上传数量
+
 <code src="../../sample-code/image-uploader/cos.tsx"></code>
 
 #### tos 上传

@@ -1,47 +1,57 @@
+import Utils from '../utils';
+import type { Storage } from './storage-type';
 
-import Utils from "../utils";
+const tosStorage: Storage = {
+  upload: async (file: File, action: string, hashId?: string) => {
+    const formData = new FormData();
 
-export default {
-    upload: async (file: File, action: string, hashId?: string) => {
-
-        const formData = new FormData();
-
-        let preUrl = new URLSearchParams(action);
-        hashId && preUrl.append("hash_id", hashId);
-
-        let fileType = file.type;
-        if(!fileType){
-            fileType = await Utils.getFileType.start(file);
-        }
-        preUrl.append('vendor_type', "volcengine_tos");
-        preUrl.append('file_type', fileType);
-        preUrl.append('title', file.name);
-
-        const res = await fetch(decodeURIComponent(preUrl.toString()));
-        const resData = await res.json();
-        if(parseInt(resData.status) === 2){
-            return {
-                file_id: resData.file_id,
-                url: resData.file_url
-            };
-        }
-        
-        const new_multipart_params = resData.params;
-
-        for(let key in new_multipart_params){
-            formData.append(key, new_multipart_params[key]);
-        }
-
-        formData.append("file", file);
-
-        const response = await fetch(resData['url'], {
-            method: 'POST',
-            body: formData
-        });
-
-        const data = await response.json();
-        
-        return data;
-
+    let preUrl = {
+      hashId: '',
+      vendor_type: '',
+      file_type: '',
+      title: '',
+    };
+    if (typeof hashId !== 'undefined' && hashId !== '') {
+      preUrl.hashId = hashId;
     }
-}
+
+    let fileType = file.type;
+    if (!fileType) {
+      fileType = await Utils.getFileType.start(file);
+    }
+    preUrl.vendor_type = 'volcengine_tos';
+    preUrl.file_type = fileType;
+    preUrl.title = file.name;
+
+    const res = await fetch(Utils.normalizeUrl(action, preUrl));
+    const resData = await res.json();
+    if (parseInt(resData.status) === 2) {
+      return {
+        file_id: resData.file_id,
+        url: resData.file_url,
+      };
+    }
+
+    const new_multipart_params = resData.params;
+
+    for (let key in new_multipart_params) {
+      if (!new_multipart_params.hasOwnProperty(key)) {
+        continue;
+      }
+      formData.append(key, new_multipart_params[key]);
+    }
+
+    formData.append('file', file);
+
+    const response = await fetch(resData['url'], {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    return data;
+  },
+};
+
+export default tosStorage;
