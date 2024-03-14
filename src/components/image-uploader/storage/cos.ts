@@ -53,7 +53,11 @@ const cosStorage: Storage = {
 
     const data = await response.json();
 
-    return data;
+    return {
+      status: parseInt(data.status),
+      url: data.file_url,
+      file_id: data.file_id,
+    };
   },
 };
 
