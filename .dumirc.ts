@@ -7,4 +7,7 @@ export default defineConfig({
   themeConfig: {
     name: 'pallas-h5',
   },
+  mock: {
+    include: ['mock/**/*.{ts,tsx}'],
+  },
 });

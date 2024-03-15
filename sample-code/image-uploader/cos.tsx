@@ -1,12 +1,20 @@
 import { ImageUploader } from '@quansitech/pallas-h5';
 import React from 'react';
+import {Form} from 'antd-mobile';
 
 export default () => {
   return (
-    <ImageUploader
-      action="https://raw.githubusercontent.com/quansitech/pallas-h5/master/mock/upload.json?cate=image"
-      uploadTo="cos"
-      maxCount={1}
-    />
+    <Form>
+      <Form.Item name="image_uploader">
+      <ImageUploader
+        action="api/upload"
+        uploadTo="cos"
+        maxCount={5}
+        onChange={(items) => {
+          console.log(items);
+        }}
+      />
+      </Form.Item>
+    </Form> 
   );
 };
