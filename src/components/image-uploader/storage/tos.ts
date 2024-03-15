@@ -6,13 +6,13 @@ const tosStorage: Storage = {
     const formData = new FormData();
 
     let preUrl = {
-      hashId: '',
+      hash_id: '',
       vendor_type: '',
       file_type: '',
       title: '',
     };
     if (typeof hashId !== 'undefined' && hashId !== '') {
-      preUrl.hashId = hashId;
+      preUrl.hash_id = hashId;
     }
 
     let fileType = file.type;
